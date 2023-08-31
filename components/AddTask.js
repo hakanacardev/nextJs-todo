@@ -51,3 +51,80 @@ const AddTask = () => {
 };
 
 export default AddTask;
+
+
+
+
+//////aşağıda ki kod class component ama çözemediğim bir sebepten aşırı render yapıyor 
+/* import React, { Component } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+import Modal from "./Modal";
+import { addTodo } from "../app/api";
+import { withRouter } from "next/router";
+
+class AddTask extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalOpen: false,
+      newTaskValue: "",
+    };
+  }
+
+  handleOpenModal = () => {
+    this.setState({ modalOpen: true });
+  };
+
+  handleCloseModal = () => {
+    this.setState({ modalOpen: false });
+  };
+
+  handleSubmitNewTodo = async (e) => {
+    e.preventDefault();
+    await addTodo({
+      text: this.state.newTaskValue,
+    });
+    this.setState({ newTaskValue: "", modalOpen: false });
+    this.props.router.push(this.props.router.pathname); // Yenileme yerine sayfayı yeniden yönlendiriyoruz
+  };
+
+  handleInputChange = (e) => {
+    this.setState({ newTaskValue: e.target.value });
+  };
+
+  render() {
+    return (
+      <div>
+        <button
+          onClick={this.handleOpenModal}
+          className="btn btn-primary w-full"
+        >
+          Yeni Görev Ekle <AiOutlinePlus className="ml-2" size={18} />
+        </button>
+
+        <Modal
+          modalOpen={this.state.modalOpen}
+          setModalOpen={this.handleCloseModal}
+        >
+          <form onSubmit={this.handleSubmitNewTodo}>
+            <h3 className="font-bold text-lg">Yeni Görev Ekle</h3>
+            <div className="modal-action">
+              <input
+                value={this.state.newTaskValue}
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Type here"
+                className="input input-bordered w-full"
+              />
+              <button type="submit" className="btn">
+                Kaydet
+              </button>
+            </div>
+          </form>
+        </Modal>
+      </div>
+    );
+  }
+}
+
+export default withRouter(AddTask); */

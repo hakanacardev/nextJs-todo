@@ -1,14 +1,22 @@
 "use client";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Header = () => {
+  const route = useRouter();
   const [user, setUser] = useState({});
   useEffect(() => {
     const userLocal = JSON.parse(localStorage.getItem("user"));
+    console.log("userLocal", userLocal);
     setUser(userLocal);
   }, []);
-
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    localStorage.setItem("user", JSON.stringify({}));
+    route.push("/");
+  };
   return (
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
@@ -20,12 +28,12 @@ const Header = () => {
             >
               {user?.email}
             </p>
-            <a
-              href="#"
+            <button
+              onClick={handleLogOut}
               className="text-red bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
             >
               Çıkış Yap
-            </a>
+            </button>
           </div>
           <div
             className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
