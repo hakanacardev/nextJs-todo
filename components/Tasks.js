@@ -39,7 +39,7 @@ const Task = ({ task }) => {
         />
         <Modal modalOpen={openModalEdit} setModalOpen={setOpenModalEdit}>
           <form onSubmit={handleSubmitEditTodo}>
-            <h3 className="font-bold text-lg">Edit task</h3>
+            <h3 className="font-bold text-lg">Görev Güncelle</h3>
             <div className="modal-action">
               <input
                 value={taskToEdit}

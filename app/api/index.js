@@ -1,7 +1,11 @@
 const BASE_URL = "https://64ef02cb219b3e2873c3c8a3.mockapi.io";
-
+async function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms)); // sorun çıakrtıyor çözemedim 
+}
 export const getAllTodos = async () => {
-  const res = await fetch(`${BASE_URL}/tasks`, { cache: "no-store" });
+  const res = await fetch(`${BASE_URL}/tasks`, { cache: "no-cache" });
+  // app router kullanıdğım için getStatickProps kullanılmıyor. Onun yerine istek kısmında cache belirtmek yeterli.
+  //https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#static-site-generation-getstaticprops
   const todos = await res.json();
   return todos;
 };
